@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+
+        <title>Omx-py</title>
+
+        <!-- http://t.co/dKP3o1e -->
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- For all browsers -->
+        <link rel="stylesheet" href="static/css/320andup.css" />
+        <link rel="stylesheet" href="static/css/main.css" />
+        <meta http-equiv="cleartype" content="on" />
+
+        <script type='text/javascript' src='static/jquery-1.9.1.min.js'></script>
+        <script type='text/javascript'>
+            function send(url, data) {
+                $('#result').text('');
+                $.get(
+                    url,
+                    data,
+                    function() {
+                    }
+                );
+            }
+
+            $(function() {
+                $('#play').click(function() {
+                    var filename = $('li.selected').first().text();
+                    if(filename) {
+                        send('cmd/play', { 'filename': filename });
+                        $('li.item').each(function() {
+                            $(this).removeClass('playing');
+                            $(this).removeClass('paused');
+                        });
+                        $('li.selected').addClass('playing');
+                    }
+                });
+                $('#stop').click(function() {
+                    send('cmd/stop', {});
+                    $('li.item').each(function() {
+                        $(this).removeClass('playing');
+                        $(this).removeClass('paused');
+                    });
+                });
+                $('#pause').click(function() {
+                    send('cmd/pause', {});
+                    var item = $('li.playing, li.paused');
+                    if(item.hasClass('paused')) {
+                        item.removeClass('paused');
+                        item.addClass('playing');
+                    } else {
+                        item.removeClass('playing');
+                        item.addClass('paused');
+                    }
+                });
+                $('li.item').click(function() {
+                    $('li.item').each(function() {
+                        $(this).removeClass('selected');
+                    });
+                    $(this).addClass('selected');
+                });
+            });
+        </script>
+    </head>
+    <body class="clearfix">
+        <ul id="filename">
+            {% for file in files %}
+                {% if file == playing and paused %}
+                    {% set iconClass = 'paused' %}
+                {% elif file == playing %}
+                    {% set iconClass = 'playing' %}
+                {% else %}
+                    {% set iconClass = '' %}
+                {% endif %}
+                <li class="item {{ iconClass }}">{{ file|e }}</li>
+            {% endfor %}
+        </ul>
+        <div class="buttons">
+            <a class="btn btn-large" id="play">play</a>
+            <a class="btn btn-large" id="stop">stop</a>
+            <a class="btn btn-large" id="pause">pause</a>
+        </div>
+    </body>
+</html>
+

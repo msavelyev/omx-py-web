@@ -1,0 +1,37 @@
+li.item {
+    padding: 8px 8px 8px 38px;
+    border-bottom: 1px solid #666;
+    font-size: 1.3em;
+}
+
+li.playing {
+    background: url('../img/play32.png') no-repeat left;
+}
+
+li.paused {
+    background: url('../img/pause32.png') no-repeat left;
+}
+
+li.selected {
+    background-color: #060;
+    color: #fff;
+}
+
+div.buttons {
+    position: fixed;
+    top: 0;
+    height: 40px;
+    border: 1px solid #666;
+    width: 100%;
+    padding: 5px;
+    background-color: #fff;
+}
+
+body {
+    height: 100%;
+}
+
+ul#filename {
+    padding-top: 50px;
+}
+
