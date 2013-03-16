@@ -1,7 +1,7 @@
 omx-py-web
 ==========
 
-Python-based web interface for omxplayer
+Python-based web interface for omxplayer. Adapted for mobile devices.
 
 Dependencies
 ------------
@@ -30,6 +30,6 @@ Next you open browser at `http://<pi-address>:5000` and enjoy.
 
 Screenshots
 -----------
-* http://i.minus.com/iXKnbmNoUTGZj.png
-* http://i.minus.com/igx2f7fitzt7o.jpg
-* http://i.minus.com/iCUWuqmlrVlkP.jpg
+* desktop — http://i.minus.com/iXKnbmNoUTGZj.png
+* ipad — http://i.minus.com/igx2f7fitzt7o.jpg
+* iphone — http://i.minus.com/iCUWuqmlrVlkP.jpg
