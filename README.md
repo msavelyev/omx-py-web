@@ -20,7 +20,7 @@ If you use raspbian, you only need to install Flask. So here is how to install i
     pip install Flask
     cd omx-py-web
     
-Now you should edit file `omx-py-web.py` and change line `path = '/mnt/usb/downloads/'`. Variable `path` should point to directory where all your movies are.
+Now you should edit file `config.py` and change it as you need. Variable `media` should point to directory where all your movies are.
 
 Launch **omx-py-web**:
     
